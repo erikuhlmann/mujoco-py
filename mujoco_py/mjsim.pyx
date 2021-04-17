@@ -83,6 +83,10 @@ cdef class MjSim(object):
         with wrap_mujoco_warning():
             mj_forward(self.model.ptr, self.data.ptr)
 
+    def kinematics(self):
+        with wrap_mujoco_warning():
+            mj_kinematics(self.model.ptr, self.data.ptr)
+
     def step(self):
         """
         Advances the simulation by calling ``mj_step``.
